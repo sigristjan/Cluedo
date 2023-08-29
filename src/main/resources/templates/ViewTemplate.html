@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cluedo</title>
+    <link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+<header>
+    <h1>Cluedo</h1>
+</header>
+<section>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Alter</th>
+            <th>Grösse</th>
+            <th>Haarfarbe</th>
+        </tr>
+        </thead>
+        <tbody th:if="${not #lists.isEmpty(people)}">
+        <tr th:each="person : ${people}">
+            <td th:text="${person.name}"></td>
+            <td th:text="${person.age}"></td>
+            <td th:text="${person.height}"></td>
+            <td th:text="${person.hairColor}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>
