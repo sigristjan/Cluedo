@@ -10,9 +10,13 @@
     <h1>Cluedo</h1>
 </header>
 <section>
+    <header>
+        <h1>Personen</h1>
+    </header>
     <table>
         <thead>
         <tr>
+            <th>Number</th>
             <th>Name</th>
             <th>Alter</th>
             <th>Grösse</th>
@@ -20,11 +24,56 @@
         </tr>
         </thead>
         <tbody th:if="${not #lists.isEmpty(people)}">
-        <tr th:each="person : ${people}">
+        <tr th:each="person, iterater : ${people}">
+            <td th:text="${iterater.index}"></td>
             <td th:text="${person.name}"></td>
             <td th:text="${person.age}"></td>
             <td th:text="${person.height}"></td>
             <td th:text="${person.hairColor}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <header>
+        <h1>Waffen</h1>
+    </header>
+    <table>
+        <thead>
+        <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Material</th>
+            <th>Gewicht in kg</th>
+        </tr>
+        </thead>
+        <tbody th:if="${not #lists.isEmpty(weapons)}">
+        <tr th:each="weapon, iterator : ${weapons}">
+            <td th:text="${iterator.index}"></td>
+            <td th:text="${weapon.name}"></td>
+            <td th:text="${weapon.material}"></td>
+            <td th:text="${weapon.weight}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <header>
+        <h1>Zimmer</h1>
+    </header>
+    <table>
+        <thead>
+        <tr>
+            <th>number</th>
+            <th>Fläche in m^2</th>
+            <th>Anzahl Türen</th>
+            <th>Anzahl Fenster</th>
+            <th>Wandfarbe</th>
+        </tr>
+        </thead>
+        <tbody th:if="${not #lists.isEmpty(rooms)}">
+        <tr th:each="room, iterator : ${rooms}">
+            <td th:text="${iterator.index}"></td>
+            <td th:text="${room.surface}"></td>
+            <td th:text="${room.numberOfDoors}"></td>
+            <td th:text="${room.numberOfWindows}"></td>
+            <td th:text="${room.wallColor}"></td>
         </tr>
         </tbody>
     </table>
